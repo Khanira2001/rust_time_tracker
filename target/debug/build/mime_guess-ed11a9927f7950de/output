@@ -1,0 +1,1 @@
+cargo:rustc-env=MIME_TYPES_GENERATED_PATH=/workspace/rust_time_tracker/rust_time_tracker/target/debug/build/mime_guess-ed11a9927f7950de/out/mime_types_generated.rs

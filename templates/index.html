@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #e53935; /* Bright red */
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        form {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 2px solid #e53935;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            color: #ffffff;
+            background-color: #e53935; /* Bright red */
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #d32f2f; /* Darker red */
+        }
+
+        .task {
+            padding: 15px;
+            background: #ffebee; /* Light red */
+            border: 1px solid #e57373; /* Light red border */
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task span {
+            font-size: 16px;
+        }
+
+        .task form {
+            margin: 0;
+        }
+
+        .task button {
+            background-color: #4caf50; /* Green for Start/Stop */
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .task button:hover {
+            background-color: #388e3c; /* Darker green */
+        }
+
+        .task.running {
+            border: 1px solid #d32f2f; /* Dark red border */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+
+        <!-- Form to add a new task -->
+        <form action="/add_task" method="post">
+            <input type="text" name="description" placeholder="New Task" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <ul>
+        {% for task in tasks %}
+            <li class="task {% if task.running %}running{% endif %}" id="task-{{ loop.index0 }}">
+                <span>{{ task.description }} - Time Spent: <span id="time-{{ loop.index0 }}">{{ task.time_spent }}</span> seconds</span>
+                <form action="/start_stop/{{ loop.index0 }}" method="post" style="display:inline;">
+                    <button type="submit">
+                        {% if task.running %}Stop{% else %}Start{% endif %}
+                    </button>
+                </form>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        // Update the elapsed time for each running task every second
+        function updateTimes() {
+            {% for task in tasks %}
+                {% if task.running %}
+                    const taskId = {{ loop.index0 }};
+                    const timeSpan = document.getElementById('time-' + taskId);
+                    const startTime = new Date();
+                    startTime.setSeconds(startTime.getSeconds() - {{ task.time_spent }});
+                    setInterval(() => {
+                        const elapsedSeconds = Math.floor((new Date() - startTime) / 1000);
+                        timeSpan.textContent = elapsedSeconds;
+                    }, 1000);
+                {% endif %}
+            {% endfor %}
+        }
+
+        document.addEventListener('DOMContentLoaded', updateTimes);
+    </script>
+</body>
+</html>

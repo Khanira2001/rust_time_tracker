@@ -1,0 +1,1 @@
+/workspace/rust_time_tracker/rust_time_tracker/target/debug/rust_time_tracker: /workspace/rust_time_tracker/rust_time_tracker/src/main.rs /workspace/rust_time_tracker/rust_time_tracker/templates/index.html
