@@ -23,7 +23,11 @@ Time Tracker helps you stay organized and productive by:
 
 ## Video Demo
 
-Watch this [demo video](#) to see Time Tracker in action and understand how it can help you manage your time effectively.
+Watch the demo video to see Time Tracker in action and understand how it can help you manage your time effectively:
+
+[![Time Tracker Demo](https://img.youtube.com/vi/oqj4YIYRR8k/0.jpg)](https://youtu.be/oqj4YIYRR8k)
+
+Click the image above or follow this [link](https://youtu.be/oqj4YIYRR8k) to watch the video.
 
 ## Installation and Setup
 
@@ -73,10 +77,17 @@ Watch this [demo video](#) to see Time Tracker in action and understand how it c
 3. **Viewing Time:**
    - The time spent on each task will update dynamically and be displayed next to the task description.
 
+## Contributing
 
+Contributions are welcome! If you have suggestions or improvements, please submit a pull request or open an issue in the [GitHub repository](https://github.com/yourusername/rust_time_tracker).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Conclusion
 
 Time Tracker is designed to streamline your time management and enhance productivity through a straightforward and interactive interface. By providing real-time updates and a clean, colorful design, it helps you keep track of your tasks and time effectively. Whether you’re working on multiple projects or just want to improve your daily work routine, Time Tracker offers the tools you need to stay organized and efficient. Start using Time Tracker today and experience a more productive workflow!
 
 ---
+
