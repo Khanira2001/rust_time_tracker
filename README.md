@@ -77,13 +77,6 @@ Click the image above or follow this [link](https://youtu.be/oqj4YIYRR8k) to wat
 3. **Viewing Time:**
    - The time spent on each task will update dynamically and be displayed next to the task description.
 
-## Contributing
-
-Contributions are welcome! If you have suggestions or improvements, please submit a pull request or open an issue in the [GitHub repository](https://github.com/yourusername/rust_time_tracker).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Conclusion
 
